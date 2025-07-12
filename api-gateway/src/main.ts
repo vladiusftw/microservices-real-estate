@@ -8,14 +8,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Books example')
-    .setDescription('The books API description')
+    .setTitle('Microservices example')
+    .setDescription('The Real Estate API description')
     .setVersion('1.0')
-    .addTag('books')
+    .addTag('Real Estate')
     .build();
 
   const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, documentFactory);
+  SwaggerModule.setup('api/docs', app, documentFactory);
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.enableCors();
